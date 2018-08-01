@@ -1,0 +1,39 @@
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/project
+        name: Project
+        username: postgres
+        password: sda@cartao
+
+    jpa:
+        hibernate:
+            ddl-auto: none
+            naming-strategy: org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy
+        database: POSTGRESQL
+        open-in-view: false
+    # HTTP encoding (HttpEncodingProperties)
+    http:
+        encoding:
+            charset : UTF-8 # the encoding of HTTP requests/responses
+            enabled : true # enable http encoding support
+            force : true # force the configured encoding
+            force-request: true
+            force-response: true
+    jackson:
+        deserialization:
+            fail-on-unknown-properties : false
+    boot:
+      admin:
+        url: http://10.85.0.67:9090/server-admin/
+        client:
+          service-url: http://10.85.0.68:9090/portalmobile/
+
+server:
+    port: 8080
+    servlet:
+      context-path: /ateratividades
+
+logging:
+  level:
+    org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl: ERROR
